@@ -1,0 +1,662 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+ul{
+    list-style: none;
+}
+li{
+    display: block;
+}
+html,body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    padding: 0.01px;
+    color: #212529;
+}
+.container{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+h1{
+   font-size: 4rem; 
+}
+h2{
+    font-size: 2.5rem;
+}
+h4{
+    font-size: 1.3rem;
+}
+.no-scrool{
+    overflow: hidden;
+}
+@media screen and (max-width:500px){
+    h1{
+        font-size: 2.75rem; 
+     }
+     h2{
+         font-size: 2rem;
+     }
+     h4{
+         font-size: 1rem;
+     }
+}
+/* Header Design */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    color: #fff;
+    background-color: #212529;
+    z-index: 100;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid green; */
+    height: 100%;
+}
+header .menu-activate{
+    display: none;
+    background-color: #1abc9c;
+    color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 14px;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+header .menu-activate i{
+    margin-left: 10px;
+}
+
+header .logo a{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+header .nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .nav ul li a{
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.15s  ease-in-out;
+}
+header .nav ul li a:hover{
+    color: #1abc9c;
+}
+header .nav ul li a.active{
+    background-color: #1abc9c;
+    border-radius: 8px;
+}
+header .nav ul li a.active:hover{
+    color: inherit;
+}
+
+@media screen and (max-width:900px) {
+    header .menu-activate{
+        display: flex;
+    }
+    header .nav{
+        position: absolute;
+        top:72px;
+        left: 0;
+        right: 0;
+        background-color: #212529;
+        padding: 0 30px;   
+        height: 0;   
+        transition: 200ms ease-in-out;  
+        overflow: hidden;
+    }
+    header .nav ul{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header .nav.active{
+        height:160px;
+    }
+    header .nav ul li a.active{
+        color: #1abc9c !important;
+        background-color: #212529;
+        border-radius: 0;
+    }
+}
+@media screen and (max-width:500px){
+    header .logo a{
+        font-size: 18px;
+        
+    }
+    header .menu-activate{
+        border-radius: 6px;
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+
+/* Section home design */
+section.home{
+    margin-top: 72px;
+    background-color: #1abc9c;
+}
+section.home .container{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section.home .container .profile{
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    color: #fff;
+
+}
+section.home .profile-photo {
+    margin-top: 90px;
+}
+section.home .profile-photo img{
+    width: 13rem;
+}
+
+.illustrate{
+    height: 30px;
+    width: 30px;
+    position: relative;
+}
+ .illustrate::before, .illustrate::after{
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 250%;
+    background: #212529;
+    top: 45%;
+    transform: translateY(-50%);
+    left: -300%;
+    z-index: 10;
+    border-radius: 5px;
+}
+.illustrate::after{
+    left: 150%;
+}
+
+section.home .illustrate::before,section.home .illustrate::after{
+    background-color: #fff;
+}
+section.home .illustrate svg{
+    color: #fff;
+}
+section.home .profile .title{
+    margin-top: 40px;
+    text-align: center;
+}
+section.home .profile .illustrate{
+    margin: 25px 0;
+}
+section.home .profile .info{
+    margin-bottom: 90px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+@media screen and (max-width:500px){
+    section.home .profile .info{
+        font-size: 1.25rem;
+    }
+}
+
+
+/* Section portifolio design */
+section.portifolio{
+    padding: 80px 0;
+}
+section.portifolio .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+section.portifolio .container .portifolio-header{
+    /* border: 1px solid; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section.portifolio .container .portifolio-header .illustrate{
+    margin: 25px 0;
+}
+section.portifolio .container .portifolio-items{
+    /* border: 1px solid; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 35px;
+    width: 100%;
+    margin-top: 10px;
+    justify-items: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+section.portifolio .container .portifolio-items .portifolio-item{
+    max-width: 400px;
+    max-height: 250px;
+    overflow: hidden;
+    border-radius: 12px;
+
+}
+section.portifolio .container .portifolio-items .portifolio-item .banner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+section.portifolio .container .portifolio-items .portifolio-item .banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.portifolio .container .portifolio-items .portifolio-item .banner .go-detail{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(26, 188, 156,0.8);
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+}
+section.portifolio .container .portifolio-items .portifolio-item .banner .go-detail i{
+    font-size: 4rem;
+    color: #fff;
+}
+section.portifolio .container .portifolio-items .portifolio-item .banner:hover .go-detail{
+    visibility: visible;
+    opacity: 1;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    z-index: 110;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .details-back{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(26, 188, 156,0.3); */
+    overflow-y: auto;
+    padding-bottom: 30px;
+}
+
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .details-close-background{
+    position: fixed;
+    top:0;
+    left: 0;
+    /* bottom: 0; */
+    width: 100%;
+    height: 100%;
+    transition: 200ms ease-in-out;
+    z-index: 111;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details.active .details-close-background{
+    background: rgba(0, 0, 0, 0.6);
+    transition: 200ms ease-in-out;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container{
+    position: relative;
+    background: #fff;
+    z-index: 112;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 900px;
+    left: 50%;
+    top:-10px;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    padding: 20px;
+    transition: 200ms ease-in-out;
+    
+    
+    
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details.active .portifolio-details-container{
+    top: 20px;
+    transition: 200ms ease-in-out;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .close-details-icon{
+    font-size: 45px;
+    color: rgba(0, 0, 0, 0.50);
+    margin-left: auto;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+    
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .close-details-icon:hover{
+    color: rgba(0, 0, 0, 0.70);
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .details-header{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #212529;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container  .illustrate{
+    margin: 25px 0;
+    /* border: 1px solid; */
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .details-banner{
+    max-width: 550px !important;
+    /* border: 1px solid; */
+    max-height: 320px !important;
+    margin-bottom: 20px;
+    /* overflow: hidden; */
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .details-banner img{
+    max-width: 550px !important;
+    max-height: 320px !important;
+    object-fit: cover;
+    border-radius: 8px;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .details-text{
+    font-size: 14px;
+    text-align: center;
+    max-width: 570px;
+    margin-bottom: 20px;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .close-details-btn{
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .close-details-btn:hover{
+    background-color: #259b83;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .close-details-btn i{
+    margin-right: 5px;
+}
+section.portifolio .container .portifolio-items .portifolio-item .portifolio-details.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (max-width:900px) {
+    section.portifolio .container .portifolio-items{
+        grid-template-columns: 1fr 1fr;
+
+    }
+    section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .details-banner img{
+        max-height: 300px !important;
+        /* max-width: 300px !important; */
+    }
+    section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .details-back{
+        padding: 0 10px;
+    }
+}
+@media screen and (max-width:600px) {
+    section.portifolio .container .portifolio-items{
+        grid-template-columns: 1fr;
+    }
+    section.portifolio .container .portifolio-items .portifolio-item .portifolio-details .portifolio-details-container .details-banner img{
+        max-height: 180px !important;
+        /* max-width: 300px !important; */
+    }
+}
+
+/* Section Abou design */
+
+section.about{
+    background-color: #1abc9c;
+    padding: 96px 0;
+}
+section.about .container{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+section.about .container .about-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+section.about .container .about-header .illustrate{
+    margin: 25px 0;
+}
+section.about .container .about-header .illustrate::before,section.about .container .about-header .illustrate::after{
+    background-color: #fff;
+}
+section.about .container .about-contexts{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 270px;
+    grid-gap: 25px;
+    color: #fff;
+}
+section.about .container .about-btn a{
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 16px;
+    color: #fff;
+    transition: 150ms ease-in-out;
+    margin-top: 30px;
+}
+section.about .container .about-btn a i{
+    margin-right: 5px;
+}
+section.about .container .about-btn a:hover{
+    background-color: #fff;
+    color: #000;
+}
+@media screen and (max-width:1280px) {
+    section.about .container .about-contexts{
+        padding: 0 20px;
+    }
+}
+@media screen and (max-width:770px) {
+    section.about .container .about-contexts{
+        grid-template-columns: 1fr;
+
+    }
+}
+
+
+/* Contact section design */
+
+section.contact{
+    padding: 96px 0;
+}
+section.contact .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+section.contact .container .contact-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+section.contact .container .contact-header .illustrate{
+    margin: 25px 0;
+}
+section.contact .container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+section.contact .container form div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+    width: 70%;
+    max-width: 700px;
+}
+section.contact .container form div *{
+    width: 100% !important;
+}
+section.contact .container form div input,section.contact .container form div textarea{
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.30);
+    outline: none;
+    transition: 100ms;
+    font-size: 16px;
+    padding: 6.5px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+section.contact .container form div input:focus,section.contact .container form div textarea:focus:invalid{
+    border-bottom-color: red;
+}
+
+
+section.contact .container form div label{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.60);
+    transition: 100ms;
+    
+}
+section.contact .container form div input:focus:valid,section.contact .container form div textarea:focus:valid{
+    border-bottom-color: rgb(50, 228, 50);
+}
+section.contact .container form div.contact-btn button{
+    background-color: #1abc9c;
+    border: none;
+    width:max-content!important;
+    color: #fff;
+    align-self: flex-start;
+    padding: 16px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 100ms;
+}
+section.contact .container form div.contact-btn button:hover{
+    background-color: #259b83;
+}
+
+
+@media screen and (max-width:600px) {
+    section.contact .container form div{
+        width: 100% !important;
+    }
+}
+
+/* Footer design */
+footer{
+    background: #212529;
+    color: #fff;
+}
+footer .footer-bottom{
+    background-color: rgba(0, 0, 0, 0.30);
+    padding: 25px;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+}
+footer .footer-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 50px;
+    gap: 20px;
+}
+footer .footer-main > div{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+footer .footer-main div div{
+    margin-top: 20px;
+}
+footer .footer-main div.location div{
+    max-width: 200px;
+    text-align: center;
+}
+footer .footer-main div.social div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+footer .footer-main div.social div a{
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: 120ms ease;
+}
+footer .footer-main div.social div a:hover {
+    background-color: #fff;
+    color: #212529;
+}
+footer .footer-main div.freelancer div{
+    /* border: 1px solid red; */
+    /* max-width: 300px; */
+    text-align: center;
+}
+footer .footer-main div.freelancer div a{
+    display: inline;
+    text-decoration: underline;
+    color: #1abc9c;
+    transition: 100ms;
+}
+footer .footer-main div.freelancer div a:hover{
+    color: #259b83;
+}
+
+@media screen and (max-width:800px) {
+    footer .footer-main{
+        grid-template-columns:  1fr;
+        gap: 50px;
+    }
+}
